@@ -1,0 +1,19 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+*:focus, *:active {
+    outline: none;
+}
+
+.root_app {
+    width: 960px;
+    margin: 0 auto;
+    background-color: #FFF;
+    padding: 0 10px;
+}
