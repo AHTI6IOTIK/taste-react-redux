@@ -1,27 +1,23 @@
-import * as Types from "../constants/ActionTypes";
+import {ADD_MY_FRIEND, REMOVE_MY_FRIEND, GET_FRIEND_BY_ID} from "../constants/ActionTypes";
 
-export const users = (state = [], {type, ...actions}) => {
+export const myFriends = (state = [], {type, ...actions}) => {
 
 	switch (type) {
-		case Types.REGISTER_USER:
+
+		case ADD_MY_FRIEND:
+
 			return [
 				...state,
 				actions
 			];
 
-		case Types.LOGIN_USER:
+		case REMOVE_MY_FRIEND:
 
-			return state.map(user => {
+			return [...state.filter(user => user.id !== actions.friendID)];
 
-				if(user.login === actions.login && user.pass === actions.pass) {
-					return {
-						...user,
-						isAuthorize: true
-					}
-				}
+		case GET_FRIEND_BY_ID:
 
-				return user
-			});
+			return [...state.filter(user => user.id !== actions.friendID)];
 
 		default:
 			return state;

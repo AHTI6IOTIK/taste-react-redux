@@ -1,0 +1,48 @@
+@media(max-width: 1370px) {
+	body {
+		max-width: 1350px;
+		min-width: 1280px;
+		background-color: lightblue;
+	}
+}
+
+@media(max-width: 1280px) {
+	body {
+		max-width: 1124px;
+		min-width: 980px;
+		background-color: lightcoral;
+	}
+}
+
+@media(max-width: 960px) {
+	body {
+		max-width: 1024px;
+		min-width: 760px;
+		background-color: lightgoldenrodyellow;
+	}
+}
+
+@media(max-width: 720px) {
+	body {
+		max-width: 720px;
+		min-width: 360px;
+		background-color: lightgreen;
+	}
+}
+
+@media(max-width: 360px) {
+	body {
+		max-width: 360px;
+		min-width: 280px;
+		background-color: lightseagreen;
+	}
+
+	.chats-list {
+		display: block;
+	}
+
+	.left-side-menu {
+		width: auto;
+	}
+	
+}

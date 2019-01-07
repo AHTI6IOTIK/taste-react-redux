@@ -1,28 +1,14 @@
-import {LOGOUT_USER, REGISTER_USER, LOGIN_USER, SET_AUTH_USER, AUTH_ERROR} from "../constants/ActionTypes";
-import uuid from "uuidv4";
+import {LOGOUT_USER, LOGIN_USER, AUTH_ERROR} from "../constants/ActionTypes";
 
 /**
- * отвечает за авторизацию пользователя
- * @param login
- * @param pass
- * @returns {{type: string, login: *, pass: *}}
+ *
+ * @param userID
+ * @returns {{type: string, isAuthorize: boolean, userID: *}}
  */
-export let loginUser = (login, pass) => ({
+export let loginUser = (userID) => ({
     type: LOGIN_USER,
-    login,
-    pass,
-});
-
-/**
- * устанавливает авторизацию пользователя
- * @param isAuthorize
- * @param userId
- * @returns {{type: string, isAuthorize: *, userId: *}}
- */
-export let setAuthorized = (isAuthorize = null, userId = null) => ({
-    type: SET_AUTH_USER,
-    isAuthorize,
-    userId
+	isAuthorize: true,
+	userID,
 });
 
 /**
@@ -36,29 +22,11 @@ export let authError = (errMessage) => ({
 });
 
 /**
- * пользователь выходит из аккаунта
- * @param isAuthorize
- * @param userId
- * @returns {{type: string, isAuthorize: *, userId: *}}
+ *
+ * @returns {{type: string, isAuthorize: null, userId: null}}
  */
-export let logoutUser = (isAuthorize = null, userId = null) => ({
+export let logoutUser = () => ({
     type: LOGOUT_USER,
-	isAuthorize,
-	userId
-});
-
-/**
- * пользователь хочет зарегистрироваться
- * @param userName
- * @param login
- * @param pass
- * @returns {{type: string, userId: *, userName: *, login: *, pass: *, isAuthorize: boolean}}
- */
-export let registerUser = (userName, login, pass) => ({
-    type: REGISTER_USER,
-    userId: uuid(),
-    userName,
-    login,
-    pass,
-    isAuthorize: false
+	isAuthorize: null,
+	userID: null
 });

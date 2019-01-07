@@ -1,17 +1,13 @@
-import React, {Component, Fragment} from 'react';
-
-export default class User extends Component{
+export default class UserModel {
 
 	_fields = {
 		userID: null,
 		name: null,
 		lastName: null,
 		birthDate: null,
-		userChats: null
 	};
 
 	constructor(data) {
-		super();
 
 		if (data) {
 

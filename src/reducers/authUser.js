@@ -1,30 +1,28 @@
-import {LOGOUT_USER, SET_AUTH_USER, AUTH_ERROR} from '../constants/ActionTypes';
+import {LOGOUT_USER, LOGIN_USER, AUTH_ERROR} from '../constants/ActionTypes';
 
 export const authUser = (state = {}, {type, ...actions}) => {
 
-	let {isAuthorize, userId, errMessage} = actions;
-
 	switch (type) {
 
-		case SET_AUTH_USER:
+		case LOGIN_USER:
 
 			return {
 				...state,
-				isAuthorize, userId, errMessage
+				...actions
 			};
 
 		case LOGOUT_USER:
 
 			return {
 				...state,
-				isAuthorize, userId, errMessage
+				...actions
 			};
 
 		case AUTH_ERROR:
 
 			return {
 				...state,
-				isAuthorize, userId, errMessage
+				...actions
 			};
 
 		default:

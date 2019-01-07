@@ -8,42 +8,42 @@ import {
 } from '../constants/ActionTypes';
 import uuid from 'uuidv4';
 
-export let createChat = (userId, chatUsers = []) => ({
+export let createChat = (userID, chatUsers = []) => ({
     type: CREATE_CHAT,
-    chatId: uuid(),
-    creatorChat: userId,
+    chatID: uuid(),
+    creatorChat: userID,
     messages: [],
     chatUsers
 });
 
-export let logoutChat = (chatId, userId) => ({
+export let logoutChat = (chatID, userID) => ({
     type: LOGOUT_CHAT,
-    chatId,
-    userId
+    chatID,
+    userID
 });
 
-export let removeChat = (chatId) => ({
+export let removeChat = (chatID) => ({
     type: REMOVE_CHAT,
-    chatId
+    chatID
 });
 
-export let addUserInChat = (userId, chatId) => ({
+export let addUserInChat = (userID, chatID) => ({
     type: ADD_USER_IN_CHAT,
-    userId,
-    chatId
+    userID,
+    chatID
 });
 
-export let removeUserAsChat = (userId, chatId) => ({
+export let removeUserAsChat = (userID, chatID) => ({
     type: REMOVE_USER_AS_CHAT,
-    userId,
-    chatId
+    userID,
+    chatID
 });
 
-export let addMessage = (userId, chatId, message) => ({
+export let addMessage = (userID, chatID, message) => ({
     type: ADD_MESSAGE,
     messageId: uuid(),
-    creatorMessage: userId,
+    creatorMessage: userID,
     createdAt: new Date().toString(),
     message,
-    chatId
+    chatID
 });
