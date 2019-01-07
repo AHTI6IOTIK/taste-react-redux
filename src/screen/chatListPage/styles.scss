@@ -1,0 +1,13 @@
+@import "./../../styles/default_thema";
+.chats-list {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	flex: 1;
+}
+
+.chats-list li {
+	width: 20%;
+	color: $primary-color;
+
+}

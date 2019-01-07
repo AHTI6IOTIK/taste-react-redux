@@ -1,10 +1,13 @@
 import React from 'react';
+
 import Menu from './../ui/Menu';
 
-const PageTemplate = ({children}) => (
+export const PageTemplate = ({children}) => (
 	<div className={'page-template-container'}>
 		<Menu/>
-		{children}
+		<div className={'content-container'}>
+			{children}
+		</div>
 	</div>
 );
 

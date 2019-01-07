@@ -1,11 +1,11 @@
 import {createStore, combineReducers, applyMiddleware} from 'redux';
-import {users} from './users';
+import {myFriends} from './myFriends';
 import {chats} from './chats';
 import {authUser} from './authUser';
 import initialData from './initData';
-
-import {setAuthorized} from '../actions/UsersActions';
-import {LOGIN_USER, LOGOUT_USER} from '../constants/ActionTypes'
+import {isJSON, getJSON} from "../utils/helpers";
+import converterToStore from '../utils/converterToStore';
+import converterToSaver from '../utils/converterToSaver';
 
 const logger = store => next => action => {
     let result;
@@ -20,21 +20,7 @@ const logger = store => next => action => {
 };
 
 const saver = store => next => action => {
-    let result = next(action), {users} = store.getState();
-
-    // if (action.type === LOGIN_USER) {
-	//
-    //     for(let user of users) {
-	//
-    //         if (user.login === action.login && user.pass === action.pass) {
-	//
-    //             store.dispatch(setAuthorized(true, user.userId));
-    //         }
-    //     }
-    // } else if (action.type === LOGOUT_USER) {
-	//
-    //     store.dispatch(setAuthorized());
-    // }
+    let result = next(action);
 
     localStorage['redux-store'] = JSON.stringify(store.getState());
     return result;
@@ -42,7 +28,7 @@ const saver = store => next => action => {
 
 const storeFactory = (initialState = initialData) =>
 	applyMiddleware(logger, saver)(createStore)(
-		combineReducers({users, authUser, chats}),
+		combineReducers({authUser, myFriends, chats}),
 		(
 			localStorage['redux-store'] ?
 				JSON.parse(localStorage['redux-store']) : initialData

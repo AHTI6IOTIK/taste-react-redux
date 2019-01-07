@@ -1,9 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {Route} from 'react-router-dom';
 
-import {CabinetPage} from './cabinetPage/CabinetPage';
-import ChatList from './ChatListPage';
+import ChatListPage from './ChatListPage';
 import ChatPage from './ChatPage';
 import {createChat} from '../actions/ChatsActions';
 
@@ -11,10 +10,11 @@ import LeftMenu from '../components/ui/LeftMenu';
 
 import styles from './cabinetPage/styles.scss';
 
-const Profile = ({match}) => (<div><div>профидб{console.log(match)}</div></div>);
+const Profile = ({match}) => (<div><div>Профиль{console.log(match)}</div></div>);
+const Cabinet = ({match}) => (<div><div>Кабинет{console.log(match)}</div></div>);
 
 
-const Cabinet = ({authUser, ...props}) => {
+const CabinetPage = ({authUser, ...props}) => {
 
 	if (!authUser.isAuthorize) {
 
@@ -22,10 +22,10 @@ const Cabinet = ({authUser, ...props}) => {
 	}
 
 	return (
-		<div className={'cabinetPage-content'}>
+		<div className={'cabinet-content'}>
 			<Route component={LeftMenu} />
-			<Route exact path="/cabinet" component={CabinetPage}/>
-			<Route path="/cabinet/chat-list" component={ChatList}/>
+			<Route exact path="/cabinet" component={Cabinet}/>
+			<Route path="/cabinet/chat-list" component={ChatListPage}/>
 			<Route path="/cabinet/profile" component={Profile}/>
 			<Route path="/cabinet/chat/:id" component={ChatPage}/>
 		</div>
@@ -43,4 +43,4 @@ export default connect(
 			dispatch(createChat(userID, chatUsers))
 		}
 	})
-)(Cabinet);
+)(CabinetPage);

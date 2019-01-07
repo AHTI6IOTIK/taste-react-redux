@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import AuthForm from './signIn/AuthForm';
+import AuthForm from './logInPage/AuthForm';
 
-import styles from './signIn/style.css';
+import styles from './logInPage/style.css';
 import connect from "react-redux/es/connect/connect";
-import {loginUser, logoutUser, authError} from "../actions/UsersActions";
+import {loginUser, logoutUser, authError} from "../actions/UserActions";
 
-const SignIn = (props) => {
-	console.log(props);
-	let onLoginUser = (log, pass) => {
+const LogInPage = (props) => {
 
-			props.onErrorAuth('Неверный логин или пароль');
+	let onLoginUser = () => {
+
+			props.onLoginUser(222);
 
 	};
 
@@ -27,19 +26,20 @@ const SignIn = (props) => {
 };
 
 export default connect(
-	state => ({
-		users: [...state.users],
+	(state, props) => ({
+		...props,
+		myFriends: [...state.myFriends],
 		authUser: {...state.authUser}
 	}),
 	dispatch => ({
-		onLogoutUser(id) {
-			dispatch(logoutUser(id));
+		onLogoutUser() {
+			dispatch(logoutUser());
 		},
-		onLoginUser(login, pass) {
-			dispatch(loginUser(login, pass));
+		onLoginUser(userID) {
+			dispatch(loginUser(userID));
 		},
 		onErrorAuth(message) {
 			dispatch(authError(message));
 		}
 	})
-)(SignIn);
+)(LogInPage);

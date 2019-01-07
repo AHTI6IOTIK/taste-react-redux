@@ -1,55 +1,60 @@
 const initialData = {
-    users : [
+	authUser: {
+		isAuthorize: null,
+		userID: null,
+        errorMessage: null
+	},
+    myFriends : [
         {
-            userId: 111,
+            userID: 111,
             userName: 'myName`s terminator',
-            login: 'user111',
-            pass: 'pass111',
-            isAuthorize: false
+            nickName: 'LeonardNemoy',
+            isOnline: false
         },
         {
-            userId: 222,
-            userName: 'i`m very fun',
-            login: 'user222',
-            pass: 'pass222',
-            isAuthorize: false
+			userID: 222,
+			userName: 'Petro',
+			lastName: 'Ivanov',
+			birthDate: '25.05.2005',
+			nickName: 'IsTerminatorNemo',
+			isOnline: true
         }
     ],
     chats: [
         {
-            chatId: 111,
+            chatID: 111,
             creatorChat: 111,
             chatUsers: [111, 222],
             messages: [
                 {
-                    messageId: 545454,
+                    messageID: 545454,
                     creatorMessage: 111,
-                    message: 'user message',
+                    message: 'user message111',
                     createdAt: '20.12.2018',
                 },
                 {
-                    messageId: 454545,
+                    messageID: 454545,
                     creatorMessage: 222,
-                    message: 'user message',
+                    message: 'user message222',
                     createdAt: '20.12.2018',
                 }
             ],
         },
         {
-            chatId: 222,
+            chatID: 222,
             creatorChat: 222,
             chatUsers: [111, 222],
             messages: [
                 {
-                    messageId: 545454,
+                    messageID: 545454,
                     creatorMessage: 111,
-                    message: 'user message',
+                    message: 'user message2221',
                     createdAt: '20.12.2018',
                 },
                 {
-                    messageId: 454545,
+                    messageID: 454545,
                     creatorMessage: 222,
-                    message: 'user message',
+                    message: 'user message111',
                     createdAt: '20.12.2018',
                 }
             ],

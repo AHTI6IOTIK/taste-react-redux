@@ -1,4 +1,4 @@
-export default class User {
+export default class UserModel {
 
 	_fields = {
 		userID: null,
