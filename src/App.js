@@ -3,9 +3,9 @@ import {BrowserRouter, Redirect, Route as BaseRoute, Switch} from "react-router-
 
 import appCss from './app.css';
 
-import LogIn from './screen/LogInPage';
+import LogInPage from './screen/LogInPage';
 import HomePage from "./screen/HomePage";
-import Cabinet from './screen/CabinetPage';
+import CabinetPage from './screen/CabinetPage';
 import Page404 from "./screen/Page404";
 
 import PageTemplate from './components/PageTemplate';
@@ -24,8 +24,8 @@ const App = () => (
 	<BrowserRouter>
 			<Switch>
 				<Route exact path='/' component={HomePage}/>
-				<Route path='/cabinet' component={Cabinet}/>
-				<Route path='/auth' component={LogIn}/>
+				<Route path='/cabinet' component={CabinetPage}/>
+				<Route path='/auth' component={LogInPage}/>
 
 				<Redirect from='/logout' to='/'/>
 
