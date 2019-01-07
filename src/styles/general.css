@@ -56,6 +56,10 @@ a:hover {
 		color: orangered;
 	}
 
+.content-container {
+	margin-top: 10px;
+}
+
 .content-wrapper {
 	display: flex;
 }

@@ -36,4 +36,13 @@
 		min-width: 280px;
 		background-color: lightseagreen;
 	}
+
+	.chats-list {
+		display: block;
+	}
+
+	.left-side-menu {
+		width: auto;
+	}
+	
 }
